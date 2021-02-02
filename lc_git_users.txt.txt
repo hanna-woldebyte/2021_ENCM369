@@ -1,1 +1,5 @@
-Hanna, Woldegebriel,hanna.woldegebriel@ucalgary.ca,hanna-woldebyte,hanna-woldebyte/2021_ENCM369,Jason Long,Jrlong@ucalgary.ca,UofCencm369,2021_ENCM69
+Hanna, Woldegebriel,hanna.woldegebriel@ucalgary.ca,hanna-woldebyte,hanna-woldebyte/2021_ENCM369
+Jason Long,Jrlong@ucalgary.ca,UofCencm369,2021_ENCM69
+Christopher,Kinyua,christopher.kinyua@ucalgary.ca,christopherkinyua,2021_ENCM369
+Thanusha, Veeraperumal,thanusha.veeraperuma@ucalgary.ca,Thanusha-Veeraperumal,2021_ENCM369
+Dennis,Lieu,dennis.lieu@ucalgary.ca,Dennull,2021_ENCM369
