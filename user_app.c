@@ -100,7 +100,7 @@ void UserAppRun(void)
     for (i=0x01; u32Counter > 0; i)
         u32Counter= u32Counter -i;
     if (LATA < 0xFF)
-        LATA =LATA +i 
+        LATA =LATA +i ;
                 
     if (LATA >= 0xFF)
         LATA =0x80;
