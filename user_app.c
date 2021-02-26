@@ -75,7 +75,7 @@ Promises:
 */
 void UserAppInitialize(void)
 {
-
+    
 
 } /* end UserAppInitialize() */
 
@@ -94,7 +94,20 @@ Promises:
 */
 void UserAppRun(void)
 {
-
+    while(1)
+    {
+        if ((PORTB & 0x20)==0x20)
+        {
+            while(1)
+            {
+              if((PORTB & 0x20)==0x00)  
+              { 
+                  LATA =(LATA +0x01)|0x80;
+                  break;
+              }
+            }
+        }
+    }
 
 } /* end UserAppRun */
 

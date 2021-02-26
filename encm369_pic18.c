@@ -69,7 +69,11 @@ Promises:
 */
 void ClockSetup(void)
 {
- 
+    TRISA =0x00;
+    TRISB =0xFF;
+    ANSELA= 0x00;
+    ANSELB= 0x00;
+    LATA=0x00;
   
 } /* end ClockSetup */
 
