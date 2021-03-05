@@ -1,24 +1,17 @@
 /*!**********************************************************************************************************************
 @file encm369_pic18.c                                                                
 @brief This file provides core and GPIO functions for the ENCM 369 PIC activities.
-
-
 ------------------------------------------------------------------------------------------------------------------------
 GLOBALS
 - NONE
-
 CONSTANTS
 - NONE
-
 TYPES
 - NONE
-
 PUBLIC FUNCTIONS
 - 
-
 PROTECTED FUNCTIONS
 - 
-
 ***********************************************************************************************************************/
 
 #include "configuration.h"
@@ -56,16 +49,12 @@ Function Definitions
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn void ClockSetup(void)
-
 @brief Loads all registers required to set up the processor clocks.
-
 Requires:
 - NONE
-
 Promises:
 - EFC is set up with proper flash access wait states based on 48MHz system clock
 - PMC is set up with proper oscillators and clock sources
-
 */
 void ClockSetup(void)
 {
@@ -76,37 +65,31 @@ void ClockSetup(void)
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn void GpioSetup(void)
-
 @brief Loads registers required to set up GPIO on the processor.
-
 Requires:
 - All configurations must match connected hardware.
-
 Promises:
 - Output pin for PA31_HEARTBEAT is configured
-
 */
 void GpioSetup(void)
 {
-      LATA = 0x80;
+    LATA = 0x80;
     ANSELA = 0x00;
     TRISA = 0x00;
+    
   
+    
   
 } /* end GpioSetup() */
 
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn  void SysTickSetup(void)
-
 @brief Initializes the 1ms and 1s System Ticks off the core timer.
-
 Requires:
 - NVIC is setup and SysTick handler is installed
-
 Promises:
 - Both global system timers are reset and the SysTick core timer is configured for 1ms intervals
-
 */
 void SysTickSetup(void)
 {
@@ -119,16 +102,12 @@ void SysTickSetup(void)
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn void SystemSleep(void)
-
 @brief Puts the system into sleep mode.  
-
-
 Requires:
 - 
  * 
 Promises:
 - 
-
 */
 void SystemSleep(void)
 {    
@@ -155,18 +134,22 @@ void TimeXus(u16 u16Time)
 {
     /* OPTIONAL: range check and handle edge cases*/
     /* Disable the timer during config */
-    T0CON0 &= 0x7F;                             // turns off the timer by ANDing the first bit by zero
+    T0CON0 &= 0x7F;                             
     
     /* Preload TMR0H and TMR0L based on u16TimeXus */
-    u16 u16Value = 0xFFFF - u16Time;            
+    u16 u16Value = 0xFFFF - u16Time;            //Subtracting the max bit value by the user input
     TMR0H = u16Value >> 8;
     TMR0L = u16Value & 0x00FF;
     
     /* Clear TMR0IF and enable Timer 0*/
     PIR3 &= 0x7F;                              
-    T0CON0 |= 0x80;     //turns on the timer                       
+    T0CON0 |= 0x80;                            //Turns on timer
 
 } /*end TimeXus ()*/
+
+
+
+
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -183,6 +166,4 @@ void TimeXus(u16 u16Time)
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* End of File */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
-
 

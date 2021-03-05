@@ -42,7 +42,7 @@ Type Definitions
 * Macros
 ***********************************************************************************************************************/
 #define HEARTBEAT_ON()   (LATA |=0x80)       /*!< @brief Turns on Heartbeat LED */
-#define HEARTBEAT_OFF()   (LATA&=0x7f)      /*!< @brief Turns off Heartbeat LED */
+#define HEARTBEAT_OFF()   (LATA &= 0x7f)      /*!< @brief Turns off Heartbeat LED */
 
 
 /***********************************************************************************************************************
@@ -62,6 +62,7 @@ void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
+void TimeXus(u16 u16Time);
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
