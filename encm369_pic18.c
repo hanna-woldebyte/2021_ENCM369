@@ -164,7 +164,7 @@ void TimeXus(u16 u16Time)
     
     /* Clear TMR0IF and enable Timer 0*/
     PIR3 &= 0x7F;                              
-    T0CON0 |= 0x80;                            
+    T0CON0 |= 0x80;     //turns on the timer                       
 
 } /*end TimeXus ()*/
 

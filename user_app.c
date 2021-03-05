@@ -101,7 +101,7 @@ Promises:
 */
 void UserAppRun(void)
 {
-static u16 u16Update = 0;
+    static u16 u16Update = 0;
     static u8 u8ArrayIndex = 0;
     u8 au8Pattern [] = {0x10, 0x08, 0x04, 0x02, 0x01}; 
     
