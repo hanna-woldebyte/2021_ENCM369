@@ -75,7 +75,14 @@ Promises:
 */
 void UserAppInitialize(void)
 {
+/*LED initialization*/
 
+    
+    /* Timer0 control register initialization to turn timer on, asynch mode, 16 bit 
+     *Fosc/4, 1:16 prescaler, 1:1 postscaler */
+    
+    T0CON0  = 0x50;
+    T0CON1  = 0x54;
 
 } /* end UserAppInitialize() */
 
@@ -94,7 +101,23 @@ Promises:
 */
 void UserAppRun(void)
 {
-
+static u16 u16Update = 0;
+    static u8 u8ArrayIndex = 0;
+    u8 au8Pattern [] = {0x10, 0x08, 0x04, 0x02, 0x01}; 
+    
+    u16Update++;
+    
+    if(u16Update == 500)
+    {
+        LATA = LATA | au8Pattern[u8ArrayIndex];
+        u16Update = 0; //
+        u8ArrayIndex++;
+        
+        if(u8ArrayIndex > 4)
+        {
+            u8ArrayIndex = 0; //resets the index to 0 to prevent error 
+        }
+    }
 
 } /* end UserAppRun */
 

@@ -155,16 +155,16 @@ void TimeXus(u16 u16Time)
 {
     /* OPTIONAL: range check and handle edge cases*/
     /* Disable the timer during config */
-    T0CON0 &= 0x7F;                             //Timer0 Control Register 0 that turns off the timer by ANDing the first bit by zero
+    T0CON0 &= 0x7F;                             // turns off the timer by ANDing the first bit by zero
     
     /* Preload TMR0H and TMR0L based on u16TimeXus */
-    u16 u16Value = 0xFFFF - u16Time;            //Subtracting the max bit value by the user input
+    u16 u16Value = 0xFFFF - u16Time;            
     TMR0H = u16Value >> 8;
     TMR0L = u16Value & 0x00FF;
     
     /* Clear TMR0IF and enable Timer 0*/
-    PIR3 &= 0x7F;                              //PIR3 contains the TMR0IF bit that gets cleared
-    T0CON0 |= 0x80;                            //Turns on timer
+    PIR3 &= 0x7F;                              
+    T0CON0 |= 0x80;                            
 
 } /*end TimeXus ()*/
 
