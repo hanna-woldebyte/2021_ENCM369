@@ -52,10 +52,7 @@ Function Definitions
 @brief Loads all registers required to set up the processor clocks.
 Requires:
 - NONE
-Promises:
-- EFC is set up with proper flash access wait states based on 48MHz system clock
-- PMC is set up with proper oscillators and clock sources
-*/
+Promises:*/
 void ClockSetup(void)
 {
  
@@ -73,13 +70,12 @@ Promises:
 */
 void GpioSetup(void)
 {
-    LATA = 0x80;
     ANSELA = 0x00;
     TRISA = 0x00;
     
-  
+  /*Set up DAC1: Vdd and Vss refs, ON, RA2 output */
+    DAC1CON = 0xA0; //b'1010 0000'
     
-  
 } /* end GpioSetup() */
 
 
@@ -130,26 +126,6 @@ void SystemSleep(void)
 
 /*Function takes input from the user and sets the timer to time
  out the requested period*/
-void TimeXus(u16 u16Time)
-{
-    /* OPTIONAL: range check and handle edge cases*/
-    /* Disable the timer during config */
-    T0CON0 &= 0x7F;                             
-    
-    /* Preload TMR0H and TMR0L based on u16TimeXus */
-    u16 u16Value = 0xFFFF - u16Time;            //Subtracting the max bit value by the user input
-    TMR0H = u16Value >> 8;
-    TMR0L = u16Value & 0x00FF;
-    
-    /* Clear TMR0IF and enable Timer 0*/
-    PIR3 &= 0x7F;                              
-    T0CON0 |= 0x80;                            //Turns on timer
-
-} /*end TimeXus ()*/
-
-
-
-
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -166,4 +142,3 @@ void TimeXus(u16 u16Time)
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* End of File */
 /*--------------------------------------------------------------------------------------------------------------------*/
-
