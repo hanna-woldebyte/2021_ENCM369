@@ -5,22 +5,16 @@ for the ENCM 369 PIC activities.
 ------------------------------------------------------------------------------------------------------------------------
 GLOBALS
 - NONE
-
 CONSTANTS
 - NONE
-
 TYPES
 - NONE
-
 PUBLIC FUNCTIONS
 - 
-
 PROTECTED FUNCTIONS
 - void InterruptSetup(void)
-
 ISRs
 - SW_ISR
-
 ***********************************************************************************************************************/
 
 #include "configuration.h"
@@ -58,18 +52,14 @@ Interrupt Routines
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn void InterruptSetup(void)
-
 @brief Loads all registers required to run interrupts.  Individual interrupts
  * are NOT enabled here, but globals are.
-
 Requires:
 - CONFIG bits are correctly set:
  > 
-
 Promises:
 - Vector-table based interrupt system is enabled
 - Low and high priority global interrupts are enabled
-
 */
 void InterruptSetup(void)
 {
@@ -123,7 +113,7 @@ void __interrupt(irq(IRQ_TMR1), high_priority) TMR1_ISR(void)
    KEEP THIS SHORT!
   **********************************************************************/
  
-  
+  DAC1DATL = G_au8UserAppsinTable[u8Index+=4];
   
   /*********************************************************************
    End of event handling
