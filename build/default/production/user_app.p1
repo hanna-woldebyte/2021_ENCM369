@@ -3043,124 +3043,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _UserAppRun ]
 [f ]
-[v F15949 `us ~T0 @X0 -> 25 `i s ]
+[v F15949 `us ~T0 @X0 -> 14 `i s ]
 [i F15949
 :U ..
-"240
-[; ;user_app.c: 240:     u16 au16NoteName[]=
--> -> 0 `i `us
+"242
+[; ;user_app.c: 242:      u16 auNoteName [] = {(u16)(u16)60, (u16)(u16)60, (u16)(u16)40, (u16)(u16)40, (u16)(u16)36, (u16)(u16)36, (u16)(u16)40, (u16)(u16)45, (u16)(u16)45, (u16)(u16)47, (u16)(u16)47, (u16)(u16)53, (u16)(u16)53, (u16)(u16)60};
 -> -> 60 `i `us
--> -> 0 `i `us
 -> -> 60 `i `us
--> -> 0 `i `us
 -> -> 40 `i `us
--> -> 0 `i `us
 -> -> 40 `i `us
--> -> 0 `i `us
 -> -> 36 `i `us
--> -> 0 `i `us
 -> -> 36 `i `us
--> -> 0 `i `us
 -> -> 40 `i `us
--> -> 0 `i `us
 -> -> 45 `i `us
--> -> 0 `i `us
 -> -> 45 `i `us
--> -> 0 `i `us
 -> -> 47 `i `us
--> -> 0 `i `us
+-> -> 47 `i `us
 -> -> 53 `i `us
--> -> 0 `i `us
+-> -> 53 `i `us
 -> -> 60 `i `us
--> -> 0 `i `us
 ..
 ]
-[v _au16NoteName `us ~T0 @X0 -> 25 `i a ]
-[e = _au16NoteName F15949 ]
-[v F15951 `us ~T0 @X0 -> 30 `i s ]
+[v _auNoteName `us ~T0 @X0 -> 14 `i a ]
+[e = _auNoteName F15949 ]
+[v F15951 `us ~T0 @X0 -> 14 `i s ]
 [i F15951
 :U ..
-"247
-[; ;user_app.c: 247:   u16 au16BeatLength[]=
--> -> 50 `i `us
+"246
+[; ;user_app.c: 246:   u16 au16BeatLength[]={(u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2)};
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 2 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
 -> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
+-> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
+-> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
 -> / -> -> -> 2048 `i `us `ui -> -> 2 `i `ui `us
--> -> 50 `i `us
--> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
--> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
--> -> 50 `i `us
--> / -> -> -> 2048 `i `us `ui -> -> 4 `i `ui `us
 ..
 ]
-[v _au16BeatLength `us ~T0 @X0 -> 30 `i a ]
+[v _au16BeatLength `us ~T0 @X0 -> 14 `i a ]
 [e = _au16BeatLength F15951 ]
-"256
-[; ;user_app.c: 256:       static u8 u8Index=0;
+"253
+[; ;user_app.c: 253:       static u8 u8Index=0;
 [v F15953 `uc ~T0 @X0 1 s u8Index ]
 [i F15953
 -> -> 0 `i `uc
 ]
-"258
-[; ;user_app.c: 258:      static u16 u16Counter=0x0000;
+"255
+[; ;user_app.c: 255:      static u16 u16Counter=0x0000;
 [v F15954 `us ~T0 @X0 1 s u16Counter ]
 [i F15954
 -> -> 0 `i `us
 ]
-"261
-[; ;user_app.c: 261:      if (u16Counter==au16BeatLength[u8Index])
+"258
+[; ;user_app.c: 258:      if (u16Counter==au16BeatLength[u8Index])
 [e $ ! == -> F15954 `ui -> *U + &U _au16BeatLength * -> F15953 `ux -> -> # *U &U _au16BeatLength `ui `ux `ui 2278  ]
+"259
+[; ;user_app.c: 259:      {
+{
+"260
+[; ;user_app.c: 260:          u16Counter=0x0000;
+[e = F15954 -> -> 0 `i `us ]
+"261
+[; ;user_app.c: 261:          if(u8Index>28)
+[e $ ! > -> F15953 `i -> 28 `i 2279  ]
 "262
-[; ;user_app.c: 262:      {
+[; ;user_app.c: 262:          {
 {
 "263
-[; ;user_app.c: 263:          u16Counter=0x0000;
-[e = F15954 -> -> 0 `i `us ]
-"264
-[; ;user_app.c: 264:          if(u8Index>28)
-[e $ ! > -> F15953 `i -> 28 `i 2279  ]
-"265
-[; ;user_app.c: 265:          {
-{
-"266
-[; ;user_app.c: 266:              u8Index=0;
+[; ;user_app.c: 263:              u8Index=0;
 [e = F15953 -> -> 0 `i `uc ]
-"267
-[; ;user_app.c: 267:          }
+"264
+[; ;user_app.c: 264:          }
 }
 [e :U 2279 ]
-"268
-[; ;user_app.c: 268:          u8Index++;
+"265
+[; ;user_app.c: 265:          u8Index++;
 [e ++ F15953 -> -> 1 `i `uc ]
-"270
-[; ;user_app.c: 270:      }
+"267
+[; ;user_app.c: 267:      }
 }
 [e :U 2278 ]
-"271
-[; ;user_app.c: 271:      u16Counter++;
+"268
+[; ;user_app.c: 268:      u16Counter++;
 [e ++ F15954 -> -> 1 `i `us ]
-"272
-[; ;user_app.c: 272: }
+"269
+[; ;user_app.c: 269: }
 [e :UE 2277 ]
 }

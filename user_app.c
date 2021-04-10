@@ -237,20 +237,17 @@ Promises:
 */
 void UserAppRun(void)
 {
-    u16 au16NoteName[]=
-    {
-        NN,C4,NN,C4,NN,G4,NN,G4,NN,A4,
-        NN,A4,NN,G4,NN,F4,NN,F4,NN,E4,NN,D4,NN,C4,NN};
+    
+    
+     u16 auNoteName [] = {C4, C4, G4, G4, A4, A4, G4, F4, F4, E4, E4, D4, D4, C4};
     
     
     /*length of array*/
-  u16 au16BeatLength[]=
-  {
-      RT,N4,RT,N4,RT,N4,RT,N4,RT,N4,
-      RT,N4,RT,N2,RT,N4,RT,N4,RT,N4,
-      RT,N4,RT,N2,RT,N4,RT,N4,RT,N4,
+  u16 au16BeatLength[]={N4, N4, N4, N4, N4, N4, N2, N4, N4, N4, N4, N4, N4, N2};
+  
+      
      
-  };
+  
   
             /*array index */
       static u8 u8Index=0;

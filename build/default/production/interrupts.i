@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "interrupts.c" 2
-# 26 "interrupts.c"
+# 20 "interrupts.c"
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27350,8 +27350,8 @@ void TimeXus(u16 u16TimeXus_);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 103 "./configuration.h" 2
-# 27 "interrupts.c" 2
-# 37 "interrupts.c"
+# 21 "interrupts.c" 2
+# 31 "interrupts.c"
 extern volatile u32 G_u32SystemTime1ms;
 extern volatile u32 G_u32SystemTime1s;
 extern volatile u8 G_u8SystemFlags;
@@ -27361,7 +27361,7 @@ extern volatile u8 G_u8UserAppTimePeriodHi;
 extern volatile u8 G_u8UserAppTimePeriodLo;
 
 extern u8 G_au8UserAppsinTable[];
-# 74 "interrupts.c"
+# 64 "interrupts.c"
 void InterruptSetup(void)
 {
 
@@ -27407,7 +27407,20 @@ void __attribute__((picinterrupt(("irq(28), high_priority")))) TMR1_ISR(void)
 
   TMR1H = G_u8UserAppTimePeriodHi;
   TMR1L = G_u8UserAppTimePeriodLo;
-# 133 "interrupts.c"
+
+
+
+
+
+
+
+  DAC1DATL = G_au8UserAppsinTable[u8Index+=4];
+
+
+
+
+
+
   PIR3bits.TMR1IF = 0;
 
 
@@ -27429,5 +27442,5 @@ void __attribute__((picinterrupt(("irq(27), high_priority")))) TMR2_ISR(void)
 
 
   G_u32SystemTime1ms++;
-# 162 "interrupts.c"
+# 152 "interrupts.c"
 }
