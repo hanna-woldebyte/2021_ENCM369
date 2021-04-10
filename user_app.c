@@ -237,8 +237,38 @@ Promises:
 */
 void UserAppRun(void)
 {
-
+    u16 au16NoteName[]=
+    {
+        NN,C4,NN,C4,NN,G4,NN,G4,NN,A4,
+        NN,A4,NN,G4,NN,F4,NN,F4,NN,E4,NN,D4,NN,C4,NN};
+    
+    
+    /*length of array*/
+  u16 au16BeatLength[]=
+  {
+      RT,N4,RT,N4,RT,N4,RT,N4,RT,N4,
+      RT,N4,RT,N2,RT,N4,RT,N4,RT,N4,
+      RT,N4,RT,N2,RT,N4,RT,N4,RT,N4,
+     
+  };
   
+            /*array index */
+      static u8 u8Index=0;
+  /*reset counter to count*/
+     static u16 u16Counter=0x0000;
+     
+     /*increment counter if it is not equal to the delay time*/
+     if (u16Counter==au16BeatLength[u8Index])
+     {
+         u16Counter=0x0000;
+         if(u8Index>28)
+         {
+             u8Index=0;
+         }
+         u8Index++;
+         
+     }
+     u16Counter++;
 } /* end UserAppRun() */
 
 
